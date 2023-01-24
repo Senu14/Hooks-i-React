@@ -22,6 +22,7 @@ const Kontaktformular = () =>{
 }
  
   function handleSubmit (event) {
+//A preventDefault is called on the event when submitting the form to prevent a browser reload/refresh.
      event.preventDefault();
 //when we fill the inpute setShow(true) helps to display the values.
     setShow(true)
@@ -42,13 +43,13 @@ const Kontaktformular = () =>{
     <>
     <form onSubmit={handleSubmit}>
       <h1>Form Elements</h1>
-    <label>Fulde navn:</label>
+    <label htmlFor="firstname">Fulde navn:</label>
     <input type="text" name="fuldenavn" value={values.fuldenavn} onChange={handleChange}/>
-    <label>Telefonnummer:</label>
+    <label htmlFor="telefon number">Telefonnummer:</label>
     <input type="text" name="telefonnummer" value={values.telefonnummer} onChange={handleChange} />
-    <label>Email:</label>
+    <label htmlFor="email">Email:</label>
     <input type="text" name="email" value={values.email} onChange={handleChange}/>
-    <label>Kommentar:</label>
+    <label htmlFor="comments">Kommentar:</label>
     <input type="text" name="kommentar" value={values.kommentar} onChange={handleChange}/>
 
     <select name="kontaktmethode" value={values.kontaktmethode} onChange={handleChange}> 

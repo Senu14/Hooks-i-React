@@ -8,7 +8,7 @@ export const Greeting = () => {
           <h1>Hej. mit navn er {name}</h1>
           <input className="greeting" type="text" onInput={event => setName(event.target.value)}/>
 
-         {/* <button>klik</button> */}
+         
           </>
           )
          

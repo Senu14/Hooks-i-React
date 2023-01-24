@@ -5,6 +5,7 @@ import{ BrowserRouter } from "react-router-dom"
 import Greeting from './Components/App/Pages/Greeting';
 import Talle from './Components/App/Pages/Talle';
 import Kontaktformular from './Components/App/Pages/Kontaktformular';
+import FormElements from './Components/App/Pages/Form element/FormElements';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Greeting />
       <Talle />
       <Kontaktformular />
+      {/* <FormElements /> */}
     </div>
     </BrowserRouter> 
    
