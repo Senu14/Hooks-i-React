@@ -2,7 +2,7 @@ import { useState } from "react";
 const Kontaktformular = () =>{
 // useState(false) will help, when the browser loads the value is not be shown. 
   const [show, setShow] = useState(false)
-//This method can be used when we work with multiple inputs or values
+//This method using useState and creating object,
   const [values, setValues] = useState({
       fuldenavn: "",
       telefonnummer: "",
@@ -10,12 +10,14 @@ const Kontaktformular = () =>{
       kommentar:"",
       kontaktmethode:""
   })
-//  Create handleChange and 
+//here we are using object Destructuring to copy 
+// state object to and rewrite the value which input //has changed
   function handleChange (event){
   const values=event.target.value
         setValues({
+          // this is used to copy object
         ...values,
-        [event.target.name]:values 
+        [event.target.name]:values // here we set new value 
 })
 }
  
