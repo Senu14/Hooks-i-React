@@ -41,6 +41,7 @@ const Kontaktformular = () =>{
   return(
     <>
     <form onSubmit={handleSubmit}>
+      <h1>Form Elements</h1>
     <label>Fulde navn:</label>
     <input type="text" name="fuldenavn" value={values.fuldenavn} onChange={handleChange}/>
     <label>Telefonnummer:</label>
@@ -61,11 +62,11 @@ const Kontaktformular = () =>{
     
   { show && 
   <div>
-    <p>fuldenavn: {values.fuldenavn}</p>
-    <p>telefonnummer: {values.telefonnummer}</p>
-    <p>email: {values.email}</p>
-    <p>kommentar: {values.kommentar}</p>
-    <p>kontaktmethode: {values.kontaktmethode}</p>
+    <p>Fuldenavn: {values.fuldenavn}</p>
+    <p>Telefonnummer: {values.telefonnummer}</p>
+    <p>Email: {values.email}</p>
+    <p>Kommentar: {values.kommentar}</p>
+    <p>Kontaktmethode: {values.kontaktmethode}</p>
   </div>
   }
 </>
