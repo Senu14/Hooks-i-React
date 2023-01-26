@@ -6,6 +6,7 @@ import Greeting from './Components/App/Pages/Greeting';
 import Talle from './Components/App/Pages/Talle';
 import Kontaktformular from './Components/App/Pages/Kontaktformular';
 import FormElements from './Components/App/Pages/Form element/FormElements';
+import  Counter  from './Components/App/Pages/useEffect/Counter';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Greeting />
       <Talle />
       <Kontaktformular />
-      {/* <FormElements /> */}
+      <FormElements />
+      <Counter />
     </div>
     </BrowserRouter> 
    
