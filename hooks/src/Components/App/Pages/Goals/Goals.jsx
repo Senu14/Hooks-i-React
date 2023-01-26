@@ -1,34 +1,81 @@
 import { useEffect, useState  } from "react";
 import axios from 'axios'
-import { Link, useParams}
-const GoalList = () => {
-     const[ apiData, setApiData] = useState(())
+import { Link, useParams } from "react-router-dom";
+
+const Goals = () => {
+     return(
+          <div>
+                <h1>De 17 verdensmål</h1>
+                <section><GoalList /></section>
+                <br /><br />
+          </div>
+     );
+}
+
+const GoalList = ()  =>{
+     const[ apiData, setApiData] = useState([])
 
      useEffect(()=>{
-          const url =`https://api.mediehuset.net/sdg/gaols/${id}` 
+          const url =`https://api.mediehuset.net/sdg/gaols`
+
+          
+          const getData = async () => {
+               try {
+                    const result = await axios.get(url)
+                    setApiData(result.data.items)
+               }
+               catch(err) {
+                    console.error(err);
+               }
+               
+     }
+     getData()
+}, [setApiData])
+          
+     return (
+               <ul>
+                    {
+                         apiData && apiData.map(item =>{
+                              return(
+                                   <li key={item.id}>
+                                        <link to={`/goals/${item.id}`}>{item.title}</link></li>
+                              )
+                         })
+                    }    
+               </ul>
+          )
+}
+
+const GoalDetails = ()=> {
+     const { id } = useParams()
+     const [ apiData, setApiData ] = useState({})
+
+     useEffect(() =>{
+          const url = `https://api.mediehuset.net/sdg/gaols/${id}`
 
           const getData = async () => {
-          const result = await axios.get(url)
-          setApiData(result.data.items);
-      }
-      getData()
-}, [id]);
+                  const result = await axios.get(url)
+                  setApiData(result.data.item)
+          }
+          getData()
+     }, [id]);
+     
+     console.log(apiData);
 
-  return (
-    <div>
-     <h1>De 17 verdensmål</h1>
-     <ul>
-          {apiData && apiData.map(value =>{
-               return(
-                    <li key={value.id}><link to={`/goals/${value.id}`}>{value.title}</link></li>
+     return(
+          <div>
+               { 
 
-               )
-          })}
-          
-     </ul>
-
-    </div>
-  );
-}
+                   apiData && (
+                              <>
+                                <h2>{apiData.title}</h2>
+                                <img src={apiData.image} alt={apiData.title}></img>
+                                <p>{apiData.byline}</p>
+                              </>
+                         )
+                    }
+               </div>     
+          )
+     }
   
-export { GoalList };
+export { Goals, GoalDetails };

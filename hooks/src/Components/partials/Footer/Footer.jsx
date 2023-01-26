@@ -1,11 +1,9 @@
-import Nav from "../Navigation/Nav"
-
 const Footer = () => {
      
   return (
      <Footer>
-       <h1>Min Footer</h1>
-       <Nav />
+       &copy;Webudvikler 2023
+    
      </Footer>
     
   )

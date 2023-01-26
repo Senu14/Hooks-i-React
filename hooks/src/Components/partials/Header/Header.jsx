@@ -1,16 +1,13 @@
-import Nav from "../Navigation/Nav"
+import React from 'react';
+import NavBar from './NavBar';
 
-const header = () => {
-     
-  return (
-     <header>
-       <h1>Min Side</h1>
-       <Nav />
-       <Nav />
-     </header>
-    
-  )
+const Header = () => {
+	return (
+		    <header>
+			       <div>Logo</div>
+			       <NavBar />
+		    </header>
+	);
 }
 
-
-export default  header;
+export default Header;
