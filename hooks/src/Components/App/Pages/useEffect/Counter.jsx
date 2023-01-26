@@ -11,8 +11,7 @@ import { useEffect, useState } from "react";
 
   },[count]);
      
-
-     return(
+return(
       <div>Antal renders: {count}
       </div>
      ); 

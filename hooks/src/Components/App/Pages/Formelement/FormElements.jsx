@@ -18,13 +18,10 @@ export default function FormElements(){
           [e.target.name]:values // here we set new value 
          })
 
-
 //   setShow(true)
+
      }
      
-     
-
-
      return(
           <div>
           <form>
