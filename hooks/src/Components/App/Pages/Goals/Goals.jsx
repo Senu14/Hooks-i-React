@@ -1,24 +1,18 @@
 import { useEffect, useState  } from "react";
-import axios from 'axios'
+import axios from 'axios' // Axios is as a fremwork and it coms allways with propority Data
 import { Link, useParams } from "react-router-dom";
 
-const Goals = () => {
-     return(
-          <div>
-                <h1>De 17 verdensmål</h1>
-                <section><GoalList /></section>
-                <br /><br />
-          </div>
-     );
-}
-
+// This goalList is our first componant and it sets our list from array
 const GoalList = ()  =>{
+     // Tis is our Hook with state and function and its datatype "Array"[]
      const[ apiData, setApiData] = useState([])
 
+     // We use useEffect to control the runders
      useEffect(()=>{
+     // Endpoint url
           const url =`https://api.mediehuset.net/sdg/gaols`
 
-          
+     // Async function to fatch our data
           const getData = async () => {
                try {
                     const result = await axios.get(url)
@@ -29,6 +23,7 @@ const GoalList = ()  =>{
                }
                
      }
+     // Call the function
      getData()
 }, [setApiData])
           
@@ -46,7 +41,8 @@ const GoalList = ()  =>{
           )
 }
 
-const GoalDetails = ()=> {
+// This goalDetails is our next componant and it taks our listDetails 
+const GoalDetails = () => {
      const { id } = useParams()
      const [ apiData, setApiData ] = useState({})
 
@@ -57,6 +53,7 @@ const GoalDetails = ()=> {
                   const result = await axios.get(url)
                   setApiData(result.data.item)
           }
+          // Call the fuction
           getData()
      }, [id]);
      
@@ -65,7 +62,7 @@ const GoalDetails = ()=> {
      return(
           <div>
                { 
-
+// Check if the state is true (&&)
                    apiData && (
                               <>
                                 <h2>{apiData.title}</h2>
@@ -78,4 +75,4 @@ const GoalDetails = ()=> {
           )
      }
   
-export { Goals, GoalDetails };
+export { GoalList, GoalDetails };
