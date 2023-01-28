@@ -5,6 +5,7 @@ const Header = () => {
 	return (
 		    <header>
 			       <div>Logo</div>
+				  <h2>WelCome to My Page</h2>
 			       <NavBar />
 		    </header>
 	);

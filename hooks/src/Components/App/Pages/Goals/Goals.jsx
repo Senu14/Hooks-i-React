@@ -2,6 +2,17 @@ import { useEffect, useState  } from "react";
 import axios from 'axios' // Axios is as a fremwork and it coms allways with propority Data
 import { Link, useParams } from "react-router-dom";
 
+const Goals = ()=>{
+     return(
+          <>
+          <h1>Den 17 Verdens måle</h1>
+          <section>
+               <GoalList />
+          </section>
+          </>
+     );
+}
+
 // This goalList is our first componant and it sets our list from array
 const GoalList = ()  =>{
      // Tis is our Hook with state and function and its datatype "Array"[]
@@ -10,9 +21,9 @@ const GoalList = ()  =>{
      // We use useEffect to control the runders
      useEffect(()=>{
      // Endpoint url
-          const url =`https://api.mediehuset.net/sdg/gaols`
+          const url =`https://api.mediehuset.net/sdg/goals`
 
-     // Async function to fatch our data
+     // Use Async function to fatch our data
           const getData = async () => {
                try {
                     const result = await axios.get(url)
@@ -33,7 +44,7 @@ const GoalList = ()  =>{
                          apiData && apiData.map(item =>{
                               return(
                                    <li key={item.id}>
-                                        <link to={`/goals/${item.id}`}>{item.title}</link></li>
+                                        <Link to={`/goals/${item.id}`}>{item.title}</Link></li>
                               )
                          })
                     }    
@@ -47,7 +58,7 @@ const GoalDetails = () => {
      const [ apiData, setApiData ] = useState({})
 
      useEffect(() =>{
-          const url = `https://api.mediehuset.net/sdg/gaols/${id}`
+          const url = `https://api.mediehuset.net/sdg/goals/${id}`
 
           const getData = async () => {
                   const result = await axios.get(url)
@@ -75,4 +86,4 @@ const GoalDetails = () => {
           )
      }
   
-export { GoalList, GoalDetails };
+export { Goals, GoalDetails };
